@@ -11,8 +11,6 @@
   <link href="https://fonts.googleapis.com/css?family=Bahianita&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-  <script src="alert/dist/sweetalert-dev.js"></script>
-  <link rel="stylesheet" href="alert/dist/sweetalert.css">
   <style>
     body {
       margin: 0px;
@@ -126,28 +124,27 @@
 </head>
 
 <body>
-  <audio src="wanna be free.mp3" autoplay></audio>
 
   <div class="container">
     <div class="row">
       <div class="col-sm" id="c1"></div>
 
       <div class="col-sm" id="c1" id="c1">
-        <p class="pbestof5">Best Of 5 Rule's</p>
+        <p class="pbestof5">Fight For Your Glory</p>
 
         <div class="score">
           <span id="userScore">0</span>
           <span id="titik">:</span>
           <span id="compScore">0</span>
         </div>
+        
+      <div id="pweapon">
+        <p id="pweapon">choose Your Weapon</p>
+      </div>
 
-        <div id="pweapon">
-          <p id="pweapon">choose Your Weapon</p>
-        </div>
-
-        <div id="word ">
-          <p id="word"></p>
-        </div>
+      <div id="word ">
+        <p id="word"></p>
+      </div>
 
         <div class="choices">
           <div class="choice buttonSty1" id="rock">
@@ -189,8 +186,6 @@
       game();
     });
 
-
-
     //UNTUK MENDAPATKAN PILIHAN COMP
     function getPilihanComp() {
       var piliharr = ["Rock", "Paper", "Scissors"];
@@ -208,13 +203,6 @@
       console.log("win");
       console.log(userScore);
       document.getElementById("userScore").innerHTML = userScore;
-
-      if (userScore === 5) {
-        swal("YOU WIN!");
-        setTimeout(function () {
-          location.reload();;
-        }, 1000);
-      }
     }
 
     //FUNGSI SAAT COMP MENANG
@@ -222,59 +210,53 @@
       compScore++;
       console.log("lose");
       console.log(compScore);
-      document.getElementById("compScore").innerHTML = compScore;
-
-      if (compScore === 5) {
-        swal("YOU LOSE!");
-        setTimeout(function () {
-          location.reload();;
-        }, 1000);
-      }
+      document.getElementById("compScore").innerHTML = compScore; 
     }
 
 
-    //FUNGSI SAAT GAME BERJALAN
+//FUNGSI SAAT GAME BERJALAN
     function game() {
       var pilihanComp = getPilihanComp();
       if (pilihanUser == "Rock" && pilihanComp == "Paper") {
-        document.getElementById("pweapon").style.fontSize = "30px";
+        document.getElementById("pweapon").style.fontSize ="30px";
         document.getElementById("pweapon").innerHTML = "You Lose You chose: " + pilihanUser
         document.getElementById("word").innerHTML = "Comp chose: " + pilihanComp
         lose();
-      } else if (pilihanUser == "Rock" && pilihanComp == "Scissors") {
-        document.getElementById("pweapon").style.fontSize = "30px";
+      } 
+      else if (pilihanUser == "Rock" && pilihanComp == "Scissors") {
+        document.getElementById("pweapon").style.fontSize ="30px";
         document.getElementById("pweapon").innerHTML = "You Win You chose: " + pilihanUser
         document.getElementById("word").innerHTML = "Comp chose: " + pilihanComp
         wining();
-      } else if (pilihanUser == "Paper" && pilihanComp == "Rock") {
-        document.getElementById("pweapon").style.fontSize = "30px";
+      } 
+      else if (pilihanUser == "Paper" && pilihanComp == "Rock") {
+        document.getElementById("pweapon").style.fontSize ="30px";
         document.getElementById("pweapon").innerHTML = "You Win You chose: " + pilihanUser
         document.getElementById("word").innerHTML = "Comp chose: " + pilihanComp
         wining();
       } else if (pilihanUser == "Paper" && pilihanComp == "Scissors") {
-        document.getElementById("pweapon").style.fontSize = "30px";
+        document.getElementById("pweapon").style.fontSize ="30px";
         document.getElementById("pweapon").innerHTML = "You Lose You chose: " + pilihanUser
         document.getElementById("word").innerHTML = "Comp chose: " + pilihanComp
         lose();
-      } else if (pilihanUser == "Scissors" && pilihanComp == "Rock") {
-        document.getElementById("pweapon").style.fontSize = "30px";
+      } 
+      else if (pilihanUser == "Scissors" && pilihanComp == "Rock") {
+        document.getElementById("pweapon").style.fontSize ="30px";
         document.getElementById("pweapon").innerHTML = "You Lose You chose: " + pilihanUser
         document.getElementById("word").innerHTML = "Comp chose: " + pilihanComp
         lose();
       } else if (pilihanUser == "Scissors" && pilihanComp == "Paper") {
-        document.getElementById("pweapon").style.fontSize = "30px";
+        document.getElementById("pweapon").style.fontSize ="30px";
         document.getElementById("pweapon").innerHTML = "You Win You chose: " + pilihanUser
         document.getElementById("word").innerHTML = "Comp chose: " + pilihanComp
         wining();
       } else {
-        document.getElementById("pweapon").style.fontSize = "30px";
+        document.getElementById("pweapon").style.fontSize ="30px";
         document.getElementById("pweapon").innerHTML = "Draw You chose: " + pilihanUser
         document.getElementById("word").innerHTML = "Comp chose: " + pilihanComp
       }
     }
   </script>
-
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
